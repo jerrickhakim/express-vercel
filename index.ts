@@ -4,6 +4,9 @@ const app = express();
 
 app.get("/", (req, res) => res.send("Express on Vercel"));
 
-app.listen(3000, () => console.log("Server ready on port 3000."));
+app.get("/api", (req, res) => res.send("Express API on Vercel"));
 
+app.get("/health", (req, res) => res.json({ status: "ok", timestamp: new Date().toISOString() }));
+
+// Export the Express API
 export default app;
